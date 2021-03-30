@@ -18,8 +18,8 @@ def analyze(teachers_file):
     # Formatting
     print('formatting...')
     data['resignation_flair'] = data['link_flair_text'] == 'Resignation'
-    data['title_contains_resign'] = data['title'].str.contains('resign|Resign')
-    data['text_contains_resign'] = (data['selftext'].str.contains('resign|Resign')
+    data['title_contains_resign'] = data['title'].str.contains('resign|Resign|quit')
+    data['text_contains_resign'] = (data['selftext'].str.contains('resign|Resign|quit')
                                         .fillna(False)
                                     )
     data['resignation_post'] = (data['link_flair_text'] == 'Resignation') | (data['title_contains_resign'] == True) | (data['text_contains_resign'] == True)
